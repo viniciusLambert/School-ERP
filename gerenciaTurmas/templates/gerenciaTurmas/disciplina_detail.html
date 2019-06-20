@@ -1,0 +1,7 @@
+{% extends 'gerenciaTurmas/base.html' %}
+
+{% block content %}
+    <a class="btn btn-default" href="{% url 'disciplina_edit' id=disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <h1>{{ disciplina.nome }}</h1>
+    <p>{{ disciplina.codigo }}</p>
+{% endblock %}

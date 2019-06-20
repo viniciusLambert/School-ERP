@@ -1,0 +1,16 @@
+{% extends 'gerenciaTurmas/base.html' %}
+
+
+{% block content %}
+    {% for turma in turmas %}
+        <div class="post">
+            <h1><a href="{% url 'disciplina_detail' id=turma.disciplina.id %}">Disciplina: {{turma.disciplina.nome}}</a></h1>
+            <p>professor: {{ turma.professor.user.name}} {{turma.professor.user.lastName}}</p>
+
+            <p>Alunos:</p>
+                {% for aluno in turma.alunos.all %}
+                    <p >&nbsp&nbsp&nbsp {{aluno.user.name}}  {{aluno.user.lastName}}</p>
+                {% endfor %}
+        </div>
+{% endfor %}
+{% endblock %}

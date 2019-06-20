@@ -49,7 +49,7 @@ class Alunos(models.Model):
 class Disciplinas(models.Model):
     nome = models.CharField(_('nome'), max_length=200, null=True, blank=True)
     codigo = models.CharField(_('codigo'), max_length=10, null=True, blank=True)
-
+    cargaHoraria = models.IntegerField(_('cargaHoraria'), null=True, blank=True)
     class Meta:
         ordering = ['id']
         verbose_name = "Disciplina"
