@@ -2,16 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29761801-918c-48a4-9480-faa98f983504" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/static/css/gerenciaTurmas.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_professores.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turma_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EscolaDoFuturo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EscolaDoFuturo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EscolaDoFuturo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/EscolaDoFuturo/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/aluno/minhas_turmas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaAvaliacoes/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_turmas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaNotas/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gerenciaTurmas/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_disciplina.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/post_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gerenciaTurmas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,67 +43,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/post_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gerenciaTurmas/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+            <state relative-caret-position="256">
+              <caret line="130" column="40" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="40" />
               <folding>
-                <element signature="e#0#54#0" expanded="true" />
+                <element signature="e#0#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="37" selection-start-column="33" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -91,26 +66,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="78" selection-start-line="3" selection-start-column="78" selection-end-line="3" selection-end-column="78" />
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/static/css/gerenciaTurmas.css">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base.html">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turma_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="12" column="116" selection-start-line="12" selection-start-column="116" selection-end-line="12" selection-end-column="116" />
+              <caret line="15" selection-start-line="6" selection-start-column="8" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turmas_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -135,19 +155,34 @@
         <option value="$PROJECT_DIR$/diciplina/models.py" />
         <option value="$PROJECT_DIR$/Users/models.py" />
         <option value="$PROJECT_DIR$/Users/admin.py" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/admin.py" />
         <option value="$PROJECT_DIR$/gerenciaAvaliacoes/admin.py" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/models.py" />
-        <option value="$PROJECT_DIR$/EscolaDoFuturo/urls.py" />
-        <option value="$PROJECT_DIR$/EscolaDoFuturo/settings.py" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/static/css/gerenciaTurmas.css" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/post_list.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base_disciplina.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base.html" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base_professores.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/post_list.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores.detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turma_detail.html" />
+        <option value="$PROJECT_DIR$/template/registration/login.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_turmas.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turmas_list.html" />
+        <option value="$PROJECT_DIR$/gerenciaAvaliacoes/models.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/models.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/admin.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login.html" />
+        <option value="$PROJECT_DIR$/EscolaDoFuturo/settings.py" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/forms.py" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" />
+        <option value="$PROJECT_DIR$/EscolaDoFuturo/urls.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/urls.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/views.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html" />
       </list>
     </option>
   </component>
@@ -205,6 +240,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login" />
+      <recent name="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases" />
       <recent name="$PROJECT_DIR$/diciplina" />
     </key>
   </component>
@@ -237,7 +274,7 @@
     <frame x="993" y="25" width="927" height="1055" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3141593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33628318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -248,7 +285,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32829374" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -256,7 +293,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3141593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25221238" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -310,9 +347,6 @@
     <entry file="file://$PROJECT_DIR$/gerenciaNotas/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaAvaliacoes/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaAvaliacoes/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -346,12 +380,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/template/gerenciaTurmas/psot_list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/template/gerenciaTurmas/post_list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/template/gerenciaTurmas/psot_list.html" />
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/template/gerenciaTurmas/post_list.html" />
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -362,32 +392,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="e#638#670#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="119" selection-start-line="119" selection-end-line="119" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/static/css/gerenciaTurmas.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -396,58 +402,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/base.html">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="116" selection-start-line="12" selection-start-column="116" selection-end-line="12" selection-end-column="116" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_professores.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores.detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/post_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="74" />
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="14" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/models.py">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="8" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_disciplina.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base_turmas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/env01/lib/python3.6/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="265" selection-start-line="265" selection-end-line="265" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaAvaliacoes/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/forms.py">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="390">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html">
+    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        <state relative-caret-position="300">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="e#638#670#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="78" selection-start-line="3" selection-start-column="78" selection-end-line="3" selection-end-column="78" />
+        <state relative-caret-position="90">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/aluno/minhas_turmas.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        <state relative-caret-position="270">
+          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="89" column="14" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="14" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -456,11 +541,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+        <state relative-caret-position="256">
+          <caret line="130" column="40" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="40" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#0#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turma_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="6" selection-start-column="8" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turmas_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>

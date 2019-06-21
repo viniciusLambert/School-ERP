@@ -41,8 +41,6 @@ INSTALLED_APPS = [
 
 
     'gerenciaTurmas',
-    'gerenciaAvaliacoes',
-    'gerenciaNotas',
     'Users'
 ]
 
@@ -73,6 +71,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'EscolaDoFuturo.wsgi.application'
 
