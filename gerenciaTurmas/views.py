@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Turmas, Alunos, Disciplinas, Professores
+from .models import Turmas, Alunos, Disciplinas, Professores, Avaliacao
 
 from Users.models import User
 from .forms import DisciplinaForm, LoginForm
@@ -33,7 +33,11 @@ def disciplina_list(request):
 
 def disciplina_detail(request, id):
     disciplina = get_object_or_404(Disciplinas, id=id)
-    return render(request, 'gerenciaTurmas/disciplina_detail.html', {'disciplina': disciplina})
+    avaliacoes = Avaliacao.objects.filter(disciplina__pk=id)
+    return render(request, 'gerenciaTurmas/disciplina_detail.html', {
+        'disciplina': disciplina,
+        'avaliacoes': avaliacoes,
+    })
 
 def disciplina_new(request):
     if request.method == "POST":
@@ -140,5 +144,9 @@ def alunos_detail(request, id):
     aluno = get_object_or_404(Alunos, id=id)
     turmas = Turmas.objects.filter(alunos__pk=id)
     return render(request, 'gerenciaTurmas/alunos_detail.html', {'aluno': aluno, 'turmas': turmas})
+
+def avaliacao_detail(request, id):
+    avaliacao = get_object_or_404(Avaliacao, id=id)
+    return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao})
 
 

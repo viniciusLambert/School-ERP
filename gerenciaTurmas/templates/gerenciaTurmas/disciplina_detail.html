@@ -2,6 +2,27 @@
 
 {% block content %}
     <h1>{{ disciplina.nome }}</h1>
-    <p>{{ disciplina.codigo }}</p>
-    <p>{{ disciplina.cargaHoraria }}</p>
+    <p>Código: {{ disciplina.codigo }}</p>
+    <p>Carga horária: {{ disciplina.cargaHoraria }}</p>
+    <h2>Avaliações</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Identificação</th>
+            <th>Qtd Questões</th>
+            <th>Remover</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for avaliacao in avaliacoes %}
+        <tr>
+            <td><a href="{% url 'avaliacao_detail' id=avaliacao.id %}">{{ avaliacao.nome }}</a></td>
+            <td>{{ avaliacao.questoes.count}}</td>
+            <!-- TODO: BOTÕES COM href para remover -->
+            <td></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button class="btn btn-default">Nova avaliação</button>
 {% endblock %}

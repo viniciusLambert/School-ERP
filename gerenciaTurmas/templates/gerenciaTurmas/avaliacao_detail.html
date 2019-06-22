@@ -1,0 +1,32 @@
+
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+
+{% block content %}
+<h1>{{avaliacao}} - {{avaliacao.nome}}</h1>
+        <div class="post">
+            <h3><a href="{% url 'disciplina_detail' id=avaliacao.disciplina.id %}">Disciplina: {{avaliacao.disciplina.nome}}</a></h3>
+            <h3><a href="{% url 'professores_detail' id=avaliacao.professor.id %}">professor: {{avaliacao.professor.user.name}} {{avaliacao.professor.user.lastName}}</a></h3>
+
+
+            <table class="table">
+                <thead>
+                <th>Questoes</th>
+                <th>Resposta</th>
+                <th>Remover</th>
+                </thead>
+                <tbody>
+                {% for questao in avaliacao.questoes.all %}
+                <tr>
+                    <td>{{questao.nome}}</td>
+                    <td>{{questao.correto}}</td>
+                    <!-- TODO: botoes com href para remover -->
+                    <td><a></a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <button class="btn btn-default">Adicionar questão</button>
+
+        </div>
+{% endblock %}
