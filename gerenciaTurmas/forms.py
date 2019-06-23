@@ -23,3 +23,18 @@ class AvaliacaoForm(forms.ModelForm):
     class Meta:
         model = Avaliacao
         fields = ('nome', 'disciplina')
+
+class QuestaoForm(forms.ModelForm):
+
+    class Meta:
+        model = Questoes
+        fields = (
+            'disciplina',
+            'nome',
+            'enunciado',
+            'alternativa1',
+            'alternativa2',
+            'alternativa3',
+            'alternativa4',
+            'correto'
+        )

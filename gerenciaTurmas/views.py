@@ -5,7 +5,7 @@ from .models import (
     Disciplinas,
     Professores,
     Avaliacao,
-
+    Questoes
 )
 
 from Users.models import User
@@ -13,6 +13,7 @@ from .forms import (
     DisciplinaForm,
     LoginForm,
     AvaliacaoForm,
+    QuestaoForm
 )
 
 # Create your views here.
@@ -189,4 +190,36 @@ def avaliacao_new(request):
             {
                 'form': form,
              }
+        )
+
+
+def questao_detail(request, id):
+    questao = get_object_or_404(Questoes, id=id)
+    return render(request, 'gerenciaTurmas/questao_detail.html',
+                  {'questao': questao})
+
+
+def questao_new(request):
+    if request.method == "POST":
+        form = QuestaoForm(request.POST)
+        if form.is_valid():
+            questao = form.save(commit=False)
+            questao.nome = request.POST['nome']
+            questao.enunciado = request.POST['enunciado']
+            questao.alternativa1 = request.POST['alternativa1']
+            questao.alternativa2 = request.POST['alternativa2']
+            questao.alternativa3 = request.POST['alternativa3']
+            questao.alternativa4 = request.POST['alternativa4']
+            questao.correto = request.POST['correto']
+            questao.save()
+
+        return redirect('questao_detail', id=questao.id)
+    else:
+        form = QuestaoForm()
+        return render(
+            request,
+            'gerenciaTurmas/questao_new.html',
+            {
+                'form': form,
+            }
         )
