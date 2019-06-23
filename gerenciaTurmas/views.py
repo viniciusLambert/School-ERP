@@ -1,8 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Turmas, Alunos, Disciplinas, Professores, Avaliacao
+from .models import (
+    Turmas,
+    Alunos,
+    Disciplinas,
+    Professores,
+    Avaliacao,
+
+)
 
 from Users.models import User
-from .forms import DisciplinaForm, LoginForm
+from .forms import (
+    DisciplinaForm,
+    LoginForm,
+    AvaliacaoForm,
+)
 
 # Create your views here.
 
@@ -13,10 +24,11 @@ def init(request):
     else:
         return redirect('login')
 
+
 def login(request):
     if request.method == "POST":
         user = get_object_or_404(User, email=request.POST['email'])
-        if(user.password == request.POST['password']):
+        if user.password == request.POST['password']:
             request.session['email'] = user.email
             request.session['type'] = user.type
             return render(request, 'gerenciaTurmas/init.html', {})
@@ -25,10 +37,12 @@ def login(request):
     return render(request, 'gerenciaTurmas/login/login.html', {'form': form})
 
 
-
 def disciplina_list(request):
     disciplina = Disciplinas.objects.all()
-    return render(request, 'gerenciaTurmas/disciplinas_list.html', {'disciplinas': disciplina})
+    return render(request,
+                  'gerenciaTurmas/disciplinas_list.html',
+                  {'disciplinas': disciplina}
+                  )
 
 
 def disciplina_detail(request, id):
@@ -55,12 +69,12 @@ def disciplina_new(request):
     return render(request, 'gerenciaTurmas/disciplina_edit.html', {'form': form})
 
 
-def disciplina_edit(request,id):
+def disciplina_edit(request, id):
     disciplina =  get_object_or_404(Disciplinas, id=id)
     if request.method == "POST":
         form = DisciplinaForm(request.POST)
         if form.is_valid():
-            print('------------------------------',request.POST)
+            print('------------------------------', request.POST)
             disciplina = form.save(commit=False)
             disciplina.nome = request.POST['nome']
             disciplina.codigo = request.POST['codigo']
@@ -140,13 +154,39 @@ def turma_detail(request,id):
     turma = get_object_or_404(Turmas, id=id)
     return render(request, 'gerenciaTurmas/turma_detail.html', {'turma': turma})
 
+
 def alunos_detail(request, id):
     aluno = get_object_or_404(Alunos, id=id)
     turmas = Turmas.objects.filter(alunos__pk=id)
     return render(request, 'gerenciaTurmas/alunos_detail.html', {'aluno': aluno, 'turmas': turmas})
+
 
 def avaliacao_detail(request, id):
     avaliacao = get_object_or_404(Avaliacao, id=id)
     return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao})
 
 
+def avaliacao_new(request):
+    if request.method == "POST":
+        form = AvaliacaoForm(request.POST)
+        if form.is_valid():
+            avaliacao = form.save(commit=False)
+            avaliacao.nome = request.POST['nome']
+            user = User.objects.get(email=request.session.get('email'))
+            professor = Professores.objects.get(user=user)
+            avaliacao.professor = professor
+            avaliacao.disciplina = Disciplinas.objects.get(
+                id=request.POST['disciplina'])
+            avaliacao.save()
+            avaliacao.questoes.set(form.cleaned_data.get('questoes'))
+
+        return redirect('avaliacao_detail', id=avaliacao.id)
+    else:
+        form = AvaliacaoForm()
+        return render(
+            request,
+            'gerenciaTurmas/avaliacao_new.html',
+            {
+                'form': form,
+             }
+        )

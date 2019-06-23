@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Disciplinas
+from .models import Disciplinas, Avaliacao, Questoes
 from Users.models import User
 
 class DisciplinaForm(forms.ModelForm):
@@ -10,7 +10,6 @@ class DisciplinaForm(forms.ModelForm):
         fields = ('nome', 'codigo','cargaHoraria',)
 
 
-
 class LoginForm(forms.ModelForm):
 
     class Meta:
@@ -18,4 +17,9 @@ class LoginForm(forms.ModelForm):
         fields = ('email', 'password',)
 
 
+class AvaliacaoForm(forms.ModelForm):
+    questoes = forms.ModelMultipleChoiceField(queryset=Questoes.objects.all())
 
+    class Meta:
+        model = Avaliacao
+        fields = ('nome', 'disciplina')

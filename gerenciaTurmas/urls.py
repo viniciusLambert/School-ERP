@@ -22,5 +22,6 @@ urlpatterns = [
     path('alunos/<int:id>/', views.alunos_detail, name='alunos_detail'),
 
     path('avaliacao/<int:id>/', views.avaliacao_detail, name='avaliacao_detail'),
+    path('avaliacao/new', views.avaliacao_new, name='avaliacao_new'),
 
 ]
