@@ -24,7 +24,7 @@
         <tbody>
         {% for questao in avaliacao.questoes.all %}
         <tr>
-            <td>{{questao.nome}}</td>
+            <td>{{questao.id}} {{questao.nome}}</td>
             <td>{{questao.correto}}</td>
             {% if type == 'Professor' %}
                 <!-- TODO: botoes com href para remover -->
@@ -32,8 +32,8 @@
                 <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
             {% endif %}
             {% if type == 'Aluno' %}
-                <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
-        <button class="btn btn-default">Realizar Tarefa</button></a>
+                <td><a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
+        <button class="btn btn-default">Realizar Tarefa</button></a></td>
             {% endif %}
 
         </tr>

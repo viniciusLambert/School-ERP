@@ -9,23 +9,49 @@
     <thead>
     <tr>
         <th>Identificação</th>
-        <th>Qtd Questões</th>
-        <th>Remover</th>
+        <th>Qtd Questões
+        {% if type == 'Professor' %}
+             <th>Remover</th>
+        {% endif %}
+        {% if type == 'Aluno' %}
+             <th>Notas</th>
+        {% endif %}
     </tr>
     </thead>
     <tbody>
-    {% for avaliacao in avaliacoes %}
-    <tr>
-        <td><a href="{% url 'avaliacao_detail' id=avaliacao.id %}">{{avaliacao.nome }}</a></td>
-        <td>{{ avaliacao.questoes.count}}</td>
-        <td><a href="{% url 'avaliacao_delete' id=avaliacao.id  did=disciplina.id%}"><button class="btn btn-default">Deletar</button></a></td>
-    </tr>
-    {% endfor %}
+    {% if type == 'Professor' %}
+        {% for avaliacao in avaliacoes %}
+        <tr>
+            <td><a href="{% url 'avaliacao_detail' id=avaliacao.id %}">{{avaliacao.nome }}</a></td>
+            <td>{{ avaliacao.questoes.count}}</td>
+            <td><a href="{% url 'avaliacao_delete' id=avaliacao.id  did=disciplina.id%}"><button class="btn btn-default">Deletar</button></a></td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+    {% if type == 'Aluno' %}
+    <!-- TODO : se ja fez mostrar notas, else disponibilizar resolução-->
+        {% for avaliacao in avaliacoes %}
+        <tr>
+            <td><a href="{% url 'avaliacao_detail' id=avaliacao.id %}">{{avaliacao.nome }}</a></td>
+            <td>{{ avaliacao.questoes.count}}</td>
+
+            {% if avaliacao.nota == None %}
+                <td><a href="{% url 'avaliacao_new' disciplina_id=disciplina.id %}"><button class="btn btn-default">Realizar Avaliação</button></a></td>
+            {% elif 1 %}
+                <td>{{avaliacao.nota}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    {% endif %}
     </tbody>
 </table>
 
 {% if type == 'Professor' %}
     <a href="{% url 'avaliacao_new' disciplina_id=disciplina.id %}"><button class="btn btn-default">Nova avaliação</button></a>
+{% endif %}
+
+{% if type == 'Aluno' %}
+    Media nas avaliações = {{media}}
 {% endif %}
 
 {% endblock %}

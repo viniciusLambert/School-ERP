@@ -57,6 +57,7 @@ class Turmas(models.Model):
         verbose_name_plural = "Turmas"
         db_table = "turmas"
 
+
     def __str__(self):
         return '#' + str(self.id)
 
@@ -101,15 +102,17 @@ class Avaliacao(models.Model):
 class Resolucao(models.Model):
     aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
     avaliacao = models.ForeignKey(Avaliacao, on_delete=models.CASCADE)
+    nota = models.FloatField(_('nota'), blank = True, null=True)
 
     class Meta:
         ordering = ['avaliacao']
         verbose_name = 'Resolução'
         verbose_name_plural = 'Resoluções'
         db_table = 'resolucao'
+        unique_together = ("aluno", "avaliacao")
 
     def __str__(self):
-        return self.avaliacao.nome + ' - ' + self.aluno.nome
+        return self.avaliacao.nome + ' - ' + self.aluno.user.name
 
 
 class Resposta(models.Model):
@@ -124,5 +127,4 @@ class Resposta(models.Model):
         db_table = 'resposta'
 
     def __str__(self):
-        return self.questao.avaliacao.nome + '/' + self.questao.nome + ' = ' \
-            + self.aluno.nome
+        return self.questao.nome + str(self.resolucao.id)

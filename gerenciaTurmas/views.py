@@ -5,7 +5,9 @@ from .models import (
     Disciplinas,
     Professores,
     Avaliacao,
-    Questoes
+    Questoes,
+    Resposta,
+    Resolucao
 )
 
 from Users.models import User
@@ -32,7 +34,14 @@ def login(request):
         if user.password == request.POST['password']:
             request.session['email'] = user.email
             request.session['type'] = user.type
-            return render(request, 'gerenciaTurmas/init.html', {})
+            if (request.session.get('type') == 'Professor'):
+                return render(request, 'gerenciaTurmas/init.html', {})
+            else:
+                user = User.objects.get(email=request.session.get('email'))
+                aluno = Alunos.objects.get(user_id=user.id)
+                turmas = Turmas.objects.filter(alunos__pk=aluno.id)
+                return render(request, 'gerenciaTurmas/turmas_list.html',
+                              {'turmas': turmas})
 
     form = LoginForm()
     return render(request, 'gerenciaTurmas/login/login.html', {'form': form})
@@ -50,10 +59,26 @@ def disciplina_detail(request, id):
     disciplina = get_object_or_404(Disciplinas, id=id)
     avaliacoes = Avaliacao.objects.filter(disciplina__pk=id)
     type = request.session.get('type')
+
+    if(type == 'Aluno'):
+        user = User.objects.get(email=request.session.get('email'))
+        aluno = Alunos.objects.get(user_id=user.id)
+        provas = 0
+        nota = 0
+        for avaliacao in avaliacoes:
+            try:
+                avaliacao.nota = Resolucao.objects.get(avaliacao__pk=avaliacao.id, aluno__pk=aluno.id).nota
+            except Resolucao.DoesNotExist:
+                avaliacao.nota = None
+            if(avaliacao.nota != None):
+                provas += 1
+                nota += avaliacao.nota
+
     return render(request, 'gerenciaTurmas/disciplina_detail.html', {
         'disciplina': disciplina,
         'avaliacoes': avaliacoes,
-        'type' : type
+        'type' : type,
+        'media': nota/provas
     })
 
 def disciplina_new(request):
