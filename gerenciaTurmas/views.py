@@ -73,12 +73,18 @@ def disciplina_detail(request, id):
             if(avaliacao.nota != None):
                 provas += 1
                 nota += avaliacao.nota
-
+        if(provas == 0):
+            provas =1
+        return render(request, 'gerenciaTurmas/disciplina_detail.html', {
+            'disciplina': disciplina,
+            'avaliacoes': avaliacoes,
+            'type' : type,
+            'media': nota/provas
+        })
     return render(request, 'gerenciaTurmas/disciplina_detail.html', {
         'disciplina': disciplina,
         'avaliacoes': avaliacoes,
-        'type' : type,
-        'media': nota/provas
+        'type': type,
     })
 
 def disciplina_new(request):
@@ -113,6 +119,7 @@ def disciplina_edit(request, id):
     else:
         form = DisciplinaForm(instance=disciplina)
     return render(request, 'gerenciaTurmas/disciplina_edit.html', {'form': form})
+
 
 
 def professores_list(request):
@@ -191,8 +198,50 @@ def alunos_detail(request, id):
 
 def avaliacao_detail(request, id):
     avaliacao = get_object_or_404(Avaliacao, id=id)
+    turmas = Turmas.objects.filter(professor__pk = avaliacao.professor.id, disciplina__pk=avaliacao.disciplina.id)
+
+    for turma in turmas:
+        disciplina = get_object_or_404(Disciplinas, id=turma.disciplina.id)
+        avaliacoes = Avaliacao.objects.filter(disciplina__pk=disciplina.id)
+        notas = []
+        situacao_alunos = []
+        for aluno in turma.alunos.all():
+            n = 0
+            q = 0
+            for avaliacao in avaliacoes:
+                try:
+                   nota_aluno = Resolucao.objects.get(
+                        avaliacao__pk=avaliacao.id, aluno__pk=aluno.id).nota
+                   n += nota_aluno
+                   notas.append({
+                       'aluno' : aluno.user.name,
+                       'avaliacao' : avaliacao.id,
+                       'nota' : nota_aluno
+                   })
+                except Resolucao.DoesNotExist:
+                    notas.append({
+                        'aluno': aluno.user.name,
+                        'avaliacao': avaliacao.id,
+                        'nota': 'Tarefa Não Realizada'
+                    })
+                q += 1
+            if(q == 0):
+                q = 1
+            media = n/q
+
+            situacao_alunos.append({
+                'aluno': aluno.user.name,
+                'media': media,
+                'situacao' : "aprovado" if media >= 6 else "reprovado"
+            })
     type = request.session.get('type')
-    return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao , 'type':type })
+    return render(request, 'gerenciaTurmas/avaliacao_detail.html',
+                  {'avaliacao': avaliacao ,
+                   'type':type ,
+                   'nota' : notas,
+                   'situacao_alunos': situacao_alunos,
+
+                   })
 
 
 def avaliacao_delete(request, id, did):
