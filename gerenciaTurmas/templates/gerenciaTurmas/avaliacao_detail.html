@@ -29,7 +29,7 @@
             {% if type == 'Professor' %}
                 <!-- TODO: botoes com href para remover -->
                 <td><a href="{% url 'questao_delete' id=avaliacao.id  qid=questao.id%}"><button class="btn btn-default">Deletar</button></a></td>
-                <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
             {% endif %}
             {% if type == 'Aluno' %}
                 <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">

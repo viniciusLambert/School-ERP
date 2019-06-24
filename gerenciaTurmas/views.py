@@ -184,7 +184,8 @@ def avaliacao_delete(request, id, did):
 
 def questao_delete(request, id, qid):
     avaliacao = get_object_or_404(Avaliacao, id=id)
-    avaliacao.questoes.remove(qid)
+    questao = get_object_or_404(Questoes, id = qid)
+    avaliacao.questoes.remove(questao)
     type = request.session.get('type')
     return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao, 'type': type})
 
