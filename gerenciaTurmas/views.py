@@ -49,9 +49,11 @@ def disciplina_list(request):
 def disciplina_detail(request, id):
     disciplina = get_object_or_404(Disciplinas, id=id)
     avaliacoes = Avaliacao.objects.filter(disciplina__pk=id)
+    type = request.session.get('type')
     return render(request, 'gerenciaTurmas/disciplina_detail.html', {
         'disciplina': disciplina,
         'avaliacoes': avaliacoes,
+        'type' : type
     })
 
 def disciplina_new(request):
@@ -164,7 +166,8 @@ def alunos_detail(request, id):
 
 def avaliacao_detail(request, id):
     avaliacao = get_object_or_404(Avaliacao, id=id)
-    return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao})
+    type = request.session.get('type')
+    return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao , 'type':type })
 
 
 def avaliacao_new(request):
@@ -195,6 +198,7 @@ def avaliacao_new(request):
 
 def questao_detail(request, id):
     questao = get_object_or_404(Questoes, id=id)
+
     return render(request, 'gerenciaTurmas/questao_detail.html',
                   {'questao': questao})
 

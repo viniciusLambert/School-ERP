@@ -81,15 +81,14 @@ WSGI_APPLICATION = 'EscolaDoFuturo.wsgi.application'
 
 DATABASES = {
     'default':  {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TrabalhoBaldochi',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'USER': 'agilis',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
-
 
 
 # Password validation

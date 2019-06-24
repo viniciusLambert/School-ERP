@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29761801-918c-48a4-9480-faa98f983504" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EscolaDoFuturo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EscolaDoFuturo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gerenciaTurmas/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gerenciaTurmas/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gerenciaTurmas/views.py" afterDir="false" />
     </list>
@@ -17,29 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+            <state relative-caret-position="390">
+              <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gerenciaTurmas/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="149" column="90" selection-start-line="149" selection-start-column="90" selection-end-line="149" selection-end-column="90" />
+            <state relative-caret-position="389">
+              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -57,25 +44,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/models.py">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-528">
-              <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="6" column="68" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="563">
+              <caret line="117" column="26" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -87,6 +104,9 @@
       <find>diciplina</find>
       <find>for</find>
       <find>def disciplina</find>
+      <find>questao/new/</find>
+      <find>url 'qu</find>
+      <find>url 'avali</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas</dir>
@@ -123,24 +143,26 @@
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/forms.py" />
         <option value="$PROJECT_DIR$/EscolaDoFuturo/urls.py" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_detail.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html" />
-        <option value="$PROJECT_DIR$/EscolaDoFuturo/settings.py" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/views.py" />
+        <option value="$PROJECT_DIR$/EscolaDoFuturo/settings.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/urls.py" />
-        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" />
         <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/views.py" />
+        <option value="$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_new.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-1" />
-    <option name="width" value="1366" />
-    <option name="height" value="769" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="y" value="-2" />
+    <option name="width" value="960" />
+    <option name="height" value="1082" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -151,34 +173,36 @@
         <subPane>
           <expand>
             <path>
-              <item name="trabaFinalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trabaFinalWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="trabaFinalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trabaFinalWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
               <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="trabaFinalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trabaFinalWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
               <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="trabaFinalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trabaFinalWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
               <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="trabaFinalWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trabaFinalWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="gerenciaTurmas" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="EscolaDoFuturo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EscolaDoFuturo" type="462c0819:PsiDirectoryNode" />
+              <item name="Users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -259,10 +283,10 @@
     <option name="totallyTimeSpent" value="4697000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="769" extended-state="6" />
+    <frame x="0" y="-2" width="960" height="1082" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19090909" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3127001" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -273,7 +297,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32829374" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31794333" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -333,10 +357,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/diciplina/apps.py" />
-    <entry file="file://$PROJECT_DIR$/diciplina/admin.py" />
-    <entry file="file://$PROJECT_DIR$/diciplina/urls.py" />
-    <entry file="file://$PROJECT_DIR$/diciplina/views.py" />
     <entry file="file://$PROJECT_DIR$/diciplina/models.py" />
     <entry file="file://$PROJECT_DIR$/Users/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -426,48 +446,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/aluno/minhas_turmas.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="37" selection-start-column="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turma_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="6" selection-start-column="8" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turmas_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -478,13 +460,6 @@
           <folding>
             <element signature="e#84#93#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="83" column="45" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -504,47 +479,10 @@
     <entry file="file://$PROJECT_DIR$/Users/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Users/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="100" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="149" column="90" selection-start-line="149" selection-start-column="90" selection-end-line="149" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,6 +496,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Users/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/bases/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EscolaDoFuturo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/aluno/minhas_turmas.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/questao_detail.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/questao_new.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/init.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -565,24 +563,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/login/login.html">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/turmas_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html">
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/professores_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/alunos_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplinas_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/disciplina_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="405">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gerenciaTurmas/templates/gerenciaTurmas/avaliacao_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="117" column="26" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="26" />
         </state>
       </provider>
     </entry>
