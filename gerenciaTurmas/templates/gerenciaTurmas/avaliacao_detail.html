@@ -32,7 +32,7 @@
     {% if type == 'Professor' %}
     <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
         <button class="btn btn-default">Adicionar questão</button>
-        <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
     </a>
     {% endif %}
 

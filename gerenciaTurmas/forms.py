@@ -22,7 +22,8 @@ class AvaliacaoForm(forms.ModelForm):
 
     class Meta:
         model = Avaliacao
-        fields = ('nome', 'disciplina')
+        fields = ('nome', )
+
 
 class QuestaoForm(forms.ModelForm):
 

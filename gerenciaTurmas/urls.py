@@ -22,8 +22,8 @@ urlpatterns = [
     path('alunos/<int:id>/', views.alunos_detail, name='alunos_detail'),
 
     path('avaliacao/<int:id>/', views.avaliacao_detail, name='avaliacao_detail'),
-    path('avaliacao/new', views.avaliacao_new, name='avaliacao_new'),
-    path('avaliacao/<int:id>/edit/', views.avaliacao_edit, name='avaliacao_edit'),
+    path('avaliacao/new/<int:disciplina_id>/', views.avaliacao_new, name='avaliacao_new'),
+    path('avaliacao/<int:id>/edit/<int:disciplina_id>/', views.avaliacao_edit, name='avaliacao_edit'),
     path('avaliacao/delete/<int:id>/<int:did>/', views.avaliacao_delete, name='avaliacao_delete'),
 
 

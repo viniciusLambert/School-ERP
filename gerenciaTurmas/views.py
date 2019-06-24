@@ -182,7 +182,7 @@ def avaliacao_delete(request, id, did):
     })
 
 
-def avaliacao_new(request):
+def avaliacao_new(request, disciplina_id):
     if request.method == "POST":
         form = AvaliacaoForm(request.POST)
         if form.is_valid():
@@ -191,8 +191,8 @@ def avaliacao_new(request):
             user = User.objects.get(email=request.session.get('email'))
             professor = Professores.objects.get(user=user)
             avaliacao.professor = professor
-            avaliacao.disciplina = Disciplinas.objects.get(
-                id=request.POST['disciplina'])
+            disciplina = Disciplinas.objects.get(id=disciplina_id)
+            avaliacao.disciplina = disciplina
             avaliacao.save()
             avaliacao.questoes.set(form.cleaned_data.get('questoes'))
 
@@ -208,18 +208,19 @@ def avaliacao_new(request):
         )
 
 
-def avaliacao_edit(request, id):
+def avaliacao_edit(request, id, disciplina_id):
     avaliacao = get_object_or_404(Avaliacao, id=id)
     if request.method == "POST":
         form = AvaliacaoForm(request.POST)
         if form.is_valid():
+            avaliacao.delete()
             avaliacao = form.save(commit=False)
             avaliacao.nome = request.POST['nome']
             user = User.objects.get(email=request.session.get('email'))
             professor = Professores.objects.get(user=user)
             avaliacao.professor = professor
-            avaliacao.disciplina = Disciplinas.objects.get(
-                id=request.POST['disciplina'])
+            disciplina = Disciplinas.objects.get(id=disciplina_id)
+            avaliacao.disciplina = disciplina
             avaliacao.save()
             avaliacao.questoes.set(form.cleaned_data.get('questoes'))
 
