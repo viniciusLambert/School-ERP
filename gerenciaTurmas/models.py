@@ -97,3 +97,29 @@ class Avaliacao(models.Model):
     def __str__(self):
         return '#' + str(self.id)
 
+
+class Resposta(models.Model):
+    questao = models.ForeignKey(Questoes, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
+    alternativa_aluno = models.CharField(_('Resposta'), max_length=250)
+
+    class Meta:
+        ordering = ['questao']
+        verbose_name = 'Resposta'
+        verbose_name_plural = 'Respostas'
+        db_table = 'resposta'
+
+    def __str__(self):
+        return self.questao.avaliacao.nome + '/' + self.questao.nome + ' = ' \
+            + self.aluno.nome
+
+class Resolucao(models.Model):
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
+    avaliacao = models.ForeignKey(Avaliacao, on_delete=models.CASCADE)
+    respostas = models.ManyToManyField(Resposta)
+
+    class Meta:
+        ordering = ['avaliacao']
+        verbose_name = 'Resolução'
+        verbose_name_plural = 'Resoluções'
+        db_table = 'resolucao'
