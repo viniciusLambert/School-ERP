@@ -169,8 +169,47 @@ def avaliacao_detail(request, id):
     type = request.session.get('type')
     return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao , 'type':type })
 
+def avaliacao_delete(request, id, did):
+    disciplina = get_object_or_404(Disciplinas, id=did)
+    type = request.session.get('type')
+    avaliacao = get_object_or_404(Avaliacao, id=id)
+    avaliacao.delete()
+    avaliacoes = Avaliacao.objects.filter(disciplina__pk=did)
+    return render(request, 'gerenciaTurmas/disciplina_detail.html', {
+        'disciplina': disciplina,
+        'avaliacoes': avaliacoes,
+        'type': type
+    })
+
 
 def avaliacao_new(request):
+    if request.method == "POST":
+        form = AvaliacaoForm(request.POST)
+        if form.is_valid():
+            avaliacao = form.save(commit=False)
+            avaliacao.nome = request.POST['nome']
+            user = User.objects.get(email=request.session.get('email'))
+            professor = Professores.objects.get(user=user)
+            avaliacao.professor = professor
+            avaliacao.disciplina = Disciplinas.objects.get(
+                id=request.POST['disciplina'])
+            avaliacao.save()
+            avaliacao.questoes.set(form.cleaned_data.get('questoes'))
+
+        return redirect('avaliacao_detail', id=avaliacao.id)
+    else:
+        form = AvaliacaoForm()
+        return render(
+            request,
+            'gerenciaTurmas/avaliacao_new.html',
+            {
+                'form': form,
+             }
+        )
+
+
+def avaliacao_edit(request, id):
+    avaliacao = get_object_or_404(Avaliacao, id=id)
     if request.method == "POST":
         form = AvaliacaoForm(request.POST)
         if form.is_valid():
