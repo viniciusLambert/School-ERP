@@ -169,6 +169,7 @@ def avaliacao_detail(request, id):
     type = request.session.get('type')
     return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao , 'type':type })
 
+
 def avaliacao_delete(request, id, did):
     disciplina = get_object_or_404(Disciplinas, id=did)
     type = request.session.get('type')
@@ -180,6 +181,12 @@ def avaliacao_delete(request, id, did):
         'avaliacoes': avaliacoes,
         'type': type
     })
+
+def questao_delete(request, id, qid):
+    avaliacao = get_object_or_404(Avaliacao, id=id)
+    avaliacao.questoes.remove(qid)
+    type = request.session.get('type')
+    return render(request, 'gerenciaTurmas/avaliacao_detail.html', {'avaliacao': avaliacao, 'type': type})
 
 
 def avaliacao_new(request, disciplina_id):

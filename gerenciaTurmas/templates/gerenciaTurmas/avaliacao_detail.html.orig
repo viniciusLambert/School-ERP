@@ -26,6 +26,11 @@
         <tr>
             <td>{{questao.nome}}</td>
             <td>{{questao.correto}}</td>
+<<<<<<< HEAD
+            <!-- TODO: botoes com href para remover -->
+            <td><a></a></td>
+            <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=questao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+=======
             {% if type == 'Professor' %}
                 <!-- TODO: botoes com href para remover -->
                 <td><a href="{% url 'questao_delete' id=avaliacao.id  qid=questao.id%}"><button class="btn btn-default">Deletar</button></a></td>
@@ -35,6 +40,7 @@
                 <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
         <button class="btn btn-default">Realizar Tarefa</button></a>
             {% endif %}
+>>>>>>> botao de deletar questoes
 
         </tr>
         {% endfor %}
@@ -42,9 +48,16 @@
     </table>
     {% if type == 'Professor' %}
     <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
+<<<<<<< HEAD
         <button class="btn btn-default">Adicionar questão</button>
         <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
     </a>
+=======
+        <button class="btn btn-default">Adicionar questão</button></a>
+
+        <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+>>>>>>> botao de deletar questoes
     {% endif %}
 
 </div>
