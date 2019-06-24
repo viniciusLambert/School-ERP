@@ -1,3 +1,6 @@
+#meld
+*.orig
+
 #pycharm
 .idea/
 
