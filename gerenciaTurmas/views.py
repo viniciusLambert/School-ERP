@@ -242,7 +242,7 @@ def questao_detail(request, id):
                   {'questao': questao})
 
 
-def questao_new(request):
+def questao_new(request, avaliacao_id):
     if request.method == "POST":
         form = QuestaoForm(request.POST)
         if form.is_valid():
@@ -255,6 +255,10 @@ def questao_new(request):
             questao.alternativa4 = request.POST['alternativa4']
             questao.correto = request.POST['correto']
             questao.save()
+            avaliacao = Avaliacao.objects.get(id=avaliacao_id)
+            avaliacao.questoes.add(questao)
+            avaliacao.save()
+
 
         return redirect('questao_detail', id=questao.id)
     else:

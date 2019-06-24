@@ -28,6 +28,6 @@ urlpatterns = [
 
 
     path('questao/<int:id>/', views.questao_detail, name='questao_detail'),
-    path('questao/new/', views.questao_new, name='questao_new'),
+    path('questao/new/<int:avaliacao_id>/', views.questao_new, name='questao_new'),
 
 ]

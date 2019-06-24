@@ -27,7 +27,7 @@
         </tbody>
     </table>
     {% if type == 'Professor' %}
-    <a href="{% url 'questao_new' %}">
+    <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
         <button class="btn btn-default">Adicionar questão</button>
     </a>
     {% endif %}
