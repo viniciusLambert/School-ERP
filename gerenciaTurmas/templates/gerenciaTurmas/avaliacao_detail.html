@@ -23,7 +23,7 @@
             <td>{{questao.correto}}</td>
             <!-- TODO: botoes com href para remover -->
             <td><a></a></td>
-            <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=questao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 
         </tr>
         {% endfor %}

@@ -247,6 +247,7 @@ def questao_new(request, avaliacao_id):
     if request.method == "POST":
         form = QuestaoForm(request.POST)
         if form.is_valid():
+            avaliacao = Avaliacao.objects.get(id=avaliacao_id)
             questao = form.save(commit=False)
             questao.nome = request.POST['nome']
             questao.enunciado = request.POST['enunciado']
@@ -255,8 +256,8 @@ def questao_new(request, avaliacao_id):
             questao.alternativa3 = request.POST['alternativa3']
             questao.alternativa4 = request.POST['alternativa4']
             questao.correto = request.POST['correto']
+            questao.disciplina = avaliacao.disciplina
             questao.save()
-            avaliacao = Avaliacao.objects.get(id=avaliacao_id)
             avaliacao.questoes.add(questao)
             avaliacao.save()
 
@@ -273,7 +274,7 @@ def questao_new(request, avaliacao_id):
         )
 
 
-def questao_edit(request, id):
+def questao_edit(request, id, disciplina_id):
     questao = get_object_or_404(Questoes, id=id)
     if request.method == "POST":
         form = QuestaoForm(request.POST)
@@ -285,6 +286,8 @@ def questao_edit(request, id):
             questao.alternativa2 = request.POST['alternativa2']
             questao.alternativa3 = request.POST['alternativa3']
             questao.alternativa4 = request.POST['alternativa4']
+            disciplina = Disciplinas.objects.get(id=disciplina_id)
+            questao.disciplina = disciplina
             questao.correto = request.POST['correto']
             questao.save()
 

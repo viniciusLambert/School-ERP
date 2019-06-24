@@ -29,5 +29,5 @@ urlpatterns = [
 
     path('questao/<int:id>/', views.questao_detail, name='questao_detail'),
     path('questao/new/<int:avaliacao_id>/', views.questao_new, name='questao_new'),
-    path('questao/<int:id>/edit/', views.questao_edit, name='questao_edit'),
+    path('questao/<int:id>/edit/<int:disciplina_id>', views.questao_edit, name='questao_edit'),
 ]

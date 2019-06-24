@@ -30,7 +30,6 @@ class QuestaoForm(forms.ModelForm):
     class Meta:
         model = Questoes
         fields = (
-            'disciplina',
             'nome',
             'enunciado',
             'alternativa1',
