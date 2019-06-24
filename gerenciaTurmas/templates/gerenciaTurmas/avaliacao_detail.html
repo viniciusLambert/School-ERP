@@ -14,6 +14,7 @@
         <th>Questões</th>
         <th>Resposta</th>
         <th>Remover</th>
+        <th>Edit</th>
         </thead>
         <tbody>
         {% for questao in avaliacao.questoes.all %}
@@ -22,6 +23,8 @@
             <td>{{questao.correto}}</td>
             <!-- TODO: botoes com href para remover -->
             <td><a></a></td>
+            <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+
         </tr>
         {% endfor %}
         </tbody>
@@ -29,6 +32,7 @@
     {% if type == 'Professor' %}
     <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
         <button class="btn btn-default">Adicionar questão</button>
+        <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
     </a>
     {% endif %}
 
