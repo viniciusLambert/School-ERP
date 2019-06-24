@@ -15,7 +15,9 @@ from .forms import (
     DisciplinaForm,
     LoginForm,
     AvaliacaoForm,
-    QuestaoForm
+    QuestaoForm,
+    ResolucaoForm,
+    RespostasFormSet
 )
 
 # Create your views here.
@@ -381,5 +383,36 @@ def questao_edit(request, id, disciplina_id):
             'gerenciaTurmas/questao_new.html',
             {
                 'form': form,
+            }
+        )
+
+
+def resolucao_new(request, avaliacao_id, aluno_id):
+    aluno = Alunos.objects.get(id=aluno_id)
+    avaliacao = Avaliacao.objects.get(id=avaliacao_id)
+    if request.method == "POST":
+        respostasFormset = RespostasFormSet(request.POST)
+        form = ResolucaoForm(request.POST)
+
+        return render(
+            request,
+            'gerenciaTurmas/resolucao_new.html',
+            {
+                'form': form,
+                'respostas': respostasFormset
+            }
+        )
+
+        # return redirect()
+    else:
+        questao = Questoes.objects.filter(avaliacao__pk=avaliacao_id)
+        respostasFormset = RespostasFormSet()
+        form = ResolucaoForm()
+        return render(
+            request,
+            'gerenciaTurmas/resolucao_new.html',
+            {
+                'form': form,
+                'respostas': respostasFormset
             }
         )

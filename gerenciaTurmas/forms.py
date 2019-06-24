@@ -1,6 +1,15 @@
 from django import forms
+from django.forms import inlineformset_factory
 
-from .models import Disciplinas, Avaliacao, Questoes
+
+from .models import (
+    Disciplinas,
+    Avaliacao,
+    Questoes,
+    Alunos,
+    Resolucao,
+    Resposta
+)
 from Users.models import User
 
 class DisciplinaForm(forms.ModelForm):
@@ -38,3 +47,32 @@ class QuestaoForm(forms.ModelForm):
             'alternativa4',
             'correto'
         )
+
+
+class RespostaForm(forms.ModelForm):
+
+    class Meta:
+        model = Resposta
+        fields = (
+            'resolucao',
+            'alternativa_aluno',
+            'questao'
+        )
+
+
+class ResolucaoForm(forms.ModelForm):
+
+    class Meta:
+        model = Resolucao
+        fields = (
+            'aluno',
+            'avaliacao'
+        )
+
+
+RespostasFormSet = inlineformset_factory(
+    Resolucao,
+    Resposta,
+    form=RespostaForm,
+    extra=1
+)
