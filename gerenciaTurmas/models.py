@@ -61,7 +61,6 @@ class Turmas(models.Model):
         return '#' + str(self.id)
 
 
-
 class Questoes(models.Model):
     disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
 
@@ -83,7 +82,6 @@ class Questoes(models.Model):
         return '#' + str(self.id) + " " + self.enunciado + " " + self.nome
 
 
-
 class Avaliacao(models.Model):
     nome = models.CharField(_('nome'), max_length=250)
     professor = models.ForeignKey(Professores, on_delete=models.CASCADE)
@@ -92,7 +90,7 @@ class Avaliacao(models.Model):
 
     class Meta:
         ordering = ['id']
-        verbose_name = "Avalição"
+        verbose_name = "Avaliação"
         verbose_name_plural = "Avaliações"
         db_table = "avaliacao"
 
