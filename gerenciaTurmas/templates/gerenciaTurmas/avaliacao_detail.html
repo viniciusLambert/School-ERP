@@ -12,10 +12,13 @@
     <table class="table">
         <thead>
         <th>Questões</th>
-        <th>Resposta</th>
+
         {% if type == 'Professor' %}
+            <th>Resposta</th>
             <th>Remover</th>
             <th>Edit</th>
+        {% else %}
+            <th>Enunciado</th>
         {% endif %}
         </thead>
         <tbody>
@@ -24,7 +27,6 @@
             <td>{{questao.id}} {{questao.nome}}</td>
             {% if type == 'Professor' %}
                 <td>{{questao.correto}}</td>
-                <!-- TODO: botoes com href para remover -->
                 <td><a href="{% url 'questao_delete' id=avaliacao.id  qid=questao.id%}"><button class="btn btn-default">Deletar</button></a></td>
                 <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
             {% endif %}
