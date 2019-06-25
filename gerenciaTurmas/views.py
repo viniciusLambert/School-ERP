@@ -427,6 +427,7 @@ def questao_edit(request, id, disciplina_id):
     if request.method == "POST":
         form = QuestaoForm(request.POST)
         if form.is_valid():
+            questao.delete()
             questao = form.save(commit=False)
             questao.nome = request.POST['nome']
             questao.enunciado = request.POST['enunciado']

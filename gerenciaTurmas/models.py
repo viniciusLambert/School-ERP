@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
+from django.db.utils import IntegrityError
 # Create your models here.
 
 from Users.models import User
@@ -57,9 +60,24 @@ class Turmas(models.Model):
         verbose_name_plural = "Turmas"
         db_table = "turmas"
 
-
     def __str__(self):
         return '#' + str(self.id)
+
+@receiver(m2m_changed, sender=Turmas.alunos.through)
+def verify_uniqueness(sender, **kwargs):
+    turma = kwargs.get('instance', None)
+    action = kwargs.get('action', None)
+    alunos = kwargs.get('pk_set', None)
+
+    if action == 'pre_add':
+        for aluno in alunos:
+            if Turmas.objects.filter(disciplina=turma.disciplina).filter(
+                    alunos=aluno):
+                raise IntegrityError(
+                    'Este aluno ja esta cadastrado nesta disciplina')
+
+
+
 
 
 class Questoes(models.Model):
