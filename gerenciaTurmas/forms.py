@@ -1,7 +1,4 @@
 from django import forms
-from django.forms import inlineformset_factory
-
-
 from .models import (
     Disciplinas,
     Avaliacao,
@@ -11,6 +8,7 @@ from .models import (
     Resposta
 )
 from Users.models import User
+
 
 class DisciplinaForm(forms.ModelForm):
 
@@ -57,10 +55,7 @@ class ResolucaoForm(forms.ModelForm):
 
     class Meta:
         model = Resolucao
-        fields = (
-            'aluno',
-            'avaliacao'
-        )
+        fields = ()
 
     def __init__(self, data, respostas, *args, **kwargs):
         self.respostas = respostas

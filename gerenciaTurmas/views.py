@@ -126,7 +126,6 @@ def disciplina_edit(request, id):
     return render(request, 'gerenciaTurmas/disciplina_edit.html', {'form': form})
 
 
-
 def professores_list(request):
     professores = Professores.objects.all()
     return render(request, 'gerenciaTurmas/professores_list.html', {'professores': professores})
@@ -409,7 +408,6 @@ def questao_new(request, avaliacao_id):
             avaliacao.questoes.add(questao)
             avaliacao.save()
 
-
         return redirect('questao_detail', id=questao.id)
     else:
         form = QuestaoForm()
@@ -427,6 +425,9 @@ def questao_edit(request, id, disciplina_id):
     if request.method == "POST":
         form = QuestaoForm(request.POST)
         if form.is_valid():
+            avaliacoes = Avaliacao.objects.filter(questoes__pk=questao.id)
+            for avaliacao in avaliacoes:
+                avaliacao.questoes.remove(questao)
             questao.delete()
             questao = form.save(commit=False)
             questao.nome = request.POST['nome']
@@ -439,6 +440,9 @@ def questao_edit(request, id, disciplina_id):
             questao.disciplina = disciplina
             questao.correto = request.POST['correto']
             questao.save()
+            for avaliacao in avaliacoes:
+                avaliacao.questoes.add(questao)
+                avaliacao.save()
 
         return redirect('questao_detail', id=questao.id)
     else:
@@ -485,13 +489,12 @@ def resolucao_new(request, avaliacao_id):
                 resposta.save()
             return render(
                 request,
-                'gerenciaTurmas/resolucao_new.html', {'form': form,}
+                'gerenciaTurmas/resolucao_new.html',
+                {'form': form, 'avaliacao': avaliacao, 'aluno': aluno}
             )
         # return redirect()
     return render(
         request,
         'gerenciaTurmas/resolucao_new.html',
-        {
-            'form': form,
-        }
+        {'form': form, 'avaliacao': avaliacao, 'aluno': aluno}
     )
