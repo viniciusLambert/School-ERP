@@ -1,0 +1,19 @@
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+{% block content %}
+<h1>Resolucão</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <ol>
+        {{ respostas.management_form }}
+        {% for form in respostas.forms %}
+        <li>
+
+            <p>{{ form }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}

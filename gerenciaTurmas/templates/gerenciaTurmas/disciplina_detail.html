@@ -36,7 +36,7 @@
             <td>{{ avaliacao.questoes.count}}</td>
 
             {% if avaliacao.nota == None %}
-                <td><a href="{% url 'avaliacao_new' disciplina_id=disciplina.id %}"><button class="btn btn-default">Realizar Avaliação</button></a></td>
+                <td><a href="{% url 'resolucao_new' avaliacao_id=avaliacao.id %}"><button class="btn btn-default">Realizar Avaliação</button></a></td>
             {% elif 1 %}
                 <td>{{avaliacao.nota}}</td>
             {% endif %}

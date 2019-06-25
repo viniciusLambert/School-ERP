@@ -49,17 +49,6 @@ class QuestaoForm(forms.ModelForm):
         )
 
 
-class RespostaForm(forms.ModelForm):
-
-    class Meta:
-        model = Resposta
-        fields = (
-            'resolucao',
-            'alternativa_aluno',
-            'questao'
-        )
-
-
 class ResolucaoForm(forms.ModelForm):
 
     class Meta:
@@ -69,10 +58,44 @@ class ResolucaoForm(forms.ModelForm):
             'avaliacao'
         )
 
+    def __init__(self, data, respostas, *args, **kwargs):
+        self.respostas = respostas
+        count = 1
+        for resposta in respostas:
+            field_name = "questao_%d" % resposta.questao.pk
+            choices = [
+                ('1', resposta.questao.alternativa1),
+                ('2', resposta.questao.alternativa2),
+                ('3', resposta.questao.alternativa3),
+                ('4', resposta.questao.alternativa4),
+            ]
+            field_label = str(count) + ' - ' + resposta.questao.enunciado
+            count += 1
+            self.base_fields.update(
+                {
+                    field_name: forms.ChoiceField(
+                        label=field_label,
+                        required=True,
+                        choices=choices,
+                        widget=forms.RadioSelect
+                    )
+                }
+            )
 
-RespostasFormSet = inlineformset_factory(
-    Resolucao,
-    Resposta,
-    form=RespostaForm,
-    extra=1
-)
+        return super(ResolucaoForm, self).__init__(data, *args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        respostas = self.respostas
+        res = super(ResolucaoForm, self).save(*args, **kwargs)
+        res.respostas = respostas
+        return res
+    
+    # def is_valid(self):
+    #     res = super(ResolucaoForm, self).is_valid()
+    #     ##Remover, feito apenas para testes
+    #     if self.errors.get('__all__')[
+    #             0] == ('Resolução with this Aluno and ' +
+    #                   'Avaliacao already exists.'):
+    #         self.errors = False
+    #         return True
+    #     return res

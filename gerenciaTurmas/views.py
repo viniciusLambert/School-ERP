@@ -17,7 +17,6 @@ from .forms import (
     AvaliacaoForm,
     QuestaoForm,
     ResolucaoForm,
-    RespostasFormSet
 )
 
 # Create your views here.
@@ -250,12 +249,12 @@ def alunos_detail(request, id):
 def avaliacao_detail(request, id):
     avaliacao = get_object_or_404(Avaliacao, id=id)
     turmas = Turmas.objects.filter(professor__pk = avaliacao.professor.id, disciplina__pk=avaliacao.disciplina.id)
-
+    notas = []
+    situacao_alunos = []
     for turma in turmas:
         disciplina = get_object_or_404(Disciplinas, id=turma.disciplina.id)
         avaliacoes = Avaliacao.objects.filter(disciplina__pk=disciplina.id)
-        notas = []
-        situacao_alunos = []
+
         for aluno in turma.alunos.all():
             n = 0
             q = 0
@@ -447,32 +446,46 @@ def questao_edit(request, id, disciplina_id):
         )
 
 
-def resolucao_new(request, avaliacao_id, aluno_id):
-    aluno = Alunos.objects.get(id=aluno_id)
+def resolucao_new(request, avaliacao_id):
+    user = User.objects.get(email=request.session.get('email'))
+    aluno = Alunos.objects.get(user_id=user.id)
     avaliacao = Avaliacao.objects.get(id=avaliacao_id)
+    questoes = Questoes.objects.filter(avaliacao__pk=avaliacao_id)
+    respostas = [Resposta(questao=questao) for questao in questoes]
+    form = ResolucaoForm(
+        initial=[{'aluno': aluno, 'avaliacao': avaliacao}],
+        data={},
+        respostas=respostas
+    )
     if request.method == "POST":
-        respostasFormset = RespostasFormSet(request.POST)
-        form = ResolucaoForm(request.POST)
+        form = ResolucaoForm(request.POST, respostas=respostas)
+        nota = 0.0
+        if form.is_valid():
+            resolucao = form.save(commit=False)
+            for resposta in resolucao.respostas:
+                resposta.alternativa_aluno = request.POST.get(
+                    'questao_%d', resposta.questao.pk)
 
-        return render(
-            request,
-            'gerenciaTurmas/resolucao_new.html',
-            {
-                'form': form,
-                'respostas': respostasFormset
-            }
-        )
+                if resposta.alternativa_aluno == resposta.questao.correto:
+                    nota += 10/len(resolucao.respostas)
 
+            resolucao.avaliacao = avaliacao
+            resolucao.aluno = aluno
+            resolucao.nota = nota
+            resolucao.save()
+
+            for resposta in resolucao.respostas:
+                resposta.resolucao = resolucao
+                resposta.save()
+            return render(
+                request,
+                'gerenciaTurmas/resolucao_new.html', {'form': form,}
+            )
         # return redirect()
-    else:
-        questao = Questoes.objects.filter(avaliacao__pk=avaliacao_id)
-        respostasFormset = RespostasFormSet()
-        form = ResolucaoForm()
-        return render(
-            request,
-            'gerenciaTurmas/resolucao_new.html',
-            {
-                'form': form,
-                'respostas': respostasFormset
-            }
-        )
+    return render(
+        request,
+        'gerenciaTurmas/resolucao_new.html',
+        {
+            'form': form,
+        }
+    )

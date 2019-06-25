@@ -87,7 +87,7 @@ class Avaliacao(models.Model):
     nome = models.CharField(_('nome'), max_length=250)
     professor = models.ForeignKey(Professores, on_delete=models.CASCADE)
     disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
-    questoes = models.ManyToManyField(Questoes)
+    questoes = models.ManyToManyField(Questoes, blank=True, null=True)
 
     class Meta:
         ordering = ['id']
