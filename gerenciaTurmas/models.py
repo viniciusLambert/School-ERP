@@ -117,8 +117,10 @@ class Resolucao(models.Model):
 
 class Resposta(models.Model):
     questao = models.ForeignKey(Questoes, on_delete=models.CASCADE)
-    resolucao = models.ForeignKey(Resolucao, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
     alternativa_aluno = models.CharField(_('Resposta'), max_length=250)
+    resolucao = models.ForeignKey(Resolucao, on_delete=models.CASCADE)
+
 
     class Meta:
         ordering = ['questao']
