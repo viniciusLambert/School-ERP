@@ -1,0 +1,23 @@
+
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+
+{% block content %}
+<h1>{{questao}} - {{questao.nome}}</h1>
+        <div class="post">
+
+            <table class="table">
+                <thead>
+                <th>Alternativas</th>
+                </thead>
+                <tbody>
+                <tr>    <td>{{questao.alternativa1}}</td> </tr>
+                <tr>    <td>{{questao.alternativa2}}</td> </tr>
+                <tr>    <td>{{questao.alternativa3}}</td> </tr>
+                <tr>    <td>{{questao.alternativa4}}</td> </tr>
+                </tbody>
+            </table>
+            <h3>Alternativa correta: {{questao.correto}}</h3>
+
+        </div>
+{% endblock %}

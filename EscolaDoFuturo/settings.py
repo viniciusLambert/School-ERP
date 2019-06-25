@@ -41,8 +41,6 @@ INSTALLED_APPS = [
 
 
     'gerenciaTurmas',
-    'gerenciaAvaliacoes',
-    'gerenciaNotas',
     'Users'
 ]
 
@@ -74,6 +72,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'EscolaDoFuturo.wsgi.application'
 
 
@@ -90,7 +89,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
 
 
 # Password validation
@@ -117,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE =  'UTC'
 
 USE_I18N = True
 

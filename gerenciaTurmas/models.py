@@ -1,36 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
+from django.db.utils import IntegrityError
 # Create your models here.
 
 from Users.models import User
-
-class Order(models.Model):
-    comment = models.CharField(_('comment'), max_length=200, null=True, blank=True)
-    rating = models.IntegerField(_('rating'), null=True, blank=True)
-    deliveryForecast = models.DateTimeField(_('deliveryForecast'), null=True, blank=True)
-    ordered = models.DateTimeField(_('ordered'), null=True, blank=True)
-    printing = models.DateTimeField(_('printing'), null=True, blank=True)
-    finished = models.DateTimeField(_('finished'), null=True, blank=True)
-    delivered = models.DateTimeField(_('delivered'), null=True, blank=True)
-    canceled = models.DateTimeField(_('canceled'), null=True, blank=True)
-    cancelId = models.CharField(_('cancelId'), max_length=30, null=True, blank=True)
-    paymentLink = models.CharField(_('paymentLink'), max_length=300, null=True, blank=True)
-    totalValue = models.FloatField(_('totalValue'), default=0.0)
-    status = models.CharField(_('status'), max_length=30, null=True, blank=True)
-    paymentType = models.CharField(_('paymentType'), max_length=30, default='money')
-    trelloCardId = models.CharField(_('trelloCardId'), max_length=40, null=True, blank=True)
-
-    usable = models.BooleanField(_('usable'))
-
-    class Meta:
-        ordering = ['id']
-        verbose_name = "Pedido"
-        verbose_name_plural = "Pedidos"
-        db_table = "order"
-
-    def __str__(self):
-        return '#' + str(self.id) + ' - ' + self.user.name
-
 
 class Alunos(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -43,13 +18,13 @@ class Alunos(models.Model):
         db_table = "alunos"
 
     def __str__(self):
-        return '#' + str(self.id)
+        return '#' + str(self.id) + " " + self.user.name + self.user.lastName
 
 
 class Disciplinas(models.Model):
     nome = models.CharField(_('nome'), max_length=200, null=True, blank=True)
     codigo = models.CharField(_('codigo'), max_length=10, null=True, blank=True)
-
+    cargaHoraria = models.IntegerField(_('cargaHoraria'), null=True, blank=True)
     class Meta:
         ordering = ['id']
         verbose_name = "Disciplina"
@@ -57,7 +32,7 @@ class Disciplinas(models.Model):
         db_table = "disciplinas"
 
     def __str__(self):
-        return '#' + str(self.id)
+        return '#' + str(self.id) + " " + self.nome
 
 
 class Professores(models.Model):
@@ -71,13 +46,13 @@ class Professores(models.Model):
         db_table = "professores"
 
     def __str__(self):
-        return '#' + str(self.id)
+        return '#' + str(self.id) + " " + self.user.name + self.user.lastName
 
 class Turmas(models.Model):
-    nome = models.CharField(_('nome'), max_length=200, null=True, blank=True)
-    professor = models.OneToOneField(Professores, on_delete=models.SET_NULL, null=True)
-    disciplina = models.OneToOneField(Disciplinas, on_delete=models.SET_NULL, null=True)
-    alunos = alunos = models.ManyToManyField(Alunos)
+    nome = models.CharField(_('nome'), max_length=200)
+    professor = models.ForeignKey(Professores, on_delete=models.CASCADE)
+    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
+    alunos = models.ManyToManyField(Alunos)
 
     class Meta:
         ordering = ['id']
@@ -88,4 +63,87 @@ class Turmas(models.Model):
     def __str__(self):
         return '#' + str(self.id)
 
+@receiver(m2m_changed, sender=Turmas.alunos.through)
+def verify_uniqueness(sender, **kwargs):
+    turma = kwargs.get('instance', None)
+    action = kwargs.get('action', None)
+    alunos = kwargs.get('pk_set', None)
 
+    if action == 'pre_add':
+        for aluno in alunos:
+            if Turmas.objects.filter(disciplina=turma.disciplina).filter(
+                    alunos=aluno):
+                raise IntegrityError(
+                    'Este aluno ja esta cadastrado nesta disciplina')
+
+
+
+
+
+class Questoes(models.Model):
+    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
+
+    nome = models.CharField(_('nome'), max_length=250)
+    enunciado = models.CharField(_('enunciado'), max_length=250)
+    alternativa1 = models.CharField(_('alternativa1'), max_length=250)
+    alternativa2 = models.CharField(_('alternativa2'), max_length=250)
+    alternativa3 = models.CharField(_('alternativa3'), max_length=250)
+    alternativa4 = models.CharField(_('alternativa4'), max_length=250)
+    correto = models.IntegerField(_('correto'), null=True, blank=True)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = "Questão"
+        verbose_name_plural = "Questões"
+        db_table = "questoes"
+
+    def __str__(self):
+        return '#' + str(self.id) + " " + self.enunciado + " " + self.nome
+
+
+class Avaliacao(models.Model):
+    nome = models.CharField(_('nome'), max_length=250)
+    professor = models.ForeignKey(Professores, on_delete=models.CASCADE)
+    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
+    questoes = models.ManyToManyField(Questoes, blank=True)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = "Avaliação"
+        verbose_name_plural = "Avaliações"
+        db_table = "avaliacao"
+
+    def __str__(self):
+        return '#' + str(self.id)
+
+
+class Resolucao(models.Model):
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
+    avaliacao = models.ForeignKey(Avaliacao, on_delete=models.CASCADE)
+    nota = models.FloatField(_('nota'), blank = True, null = True)
+
+    class Meta:
+        ordering = ['avaliacao']
+        verbose_name = 'Resolução'
+        verbose_name_plural = 'Resoluções'
+        db_table = 'resolucao'
+        unique_together = ("aluno", "avaliacao")
+
+    def __str__(self):
+        return self.avaliacao.nome + ' - ' + self.aluno.user.name
+
+
+class Resposta(models.Model):
+    questao = models.ForeignKey(Questoes, on_delete=models.CASCADE)
+    alternativa_aluno = models.CharField(_('Resposta'), max_length=250)
+    resolucao = models.ForeignKey(Resolucao, on_delete=models.CASCADE)
+
+
+    class Meta:
+        ordering = ['questao']
+        verbose_name = 'Resposta'
+        verbose_name_plural = 'Respostas'
+        db_table = 'resposta'
+
+    def __str__(self):
+        return self.questao.nome + str(self.resolucao.id)

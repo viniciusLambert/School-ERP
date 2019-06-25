@@ -1,0 +1,87 @@
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+{% block content %}
+<h1>{{avaliacao}} - {{avaliacao.nome}}</h1>
+<div class="post">
+    <h3><a href="{% url 'disciplina_detail' id=avaliacao.disciplina.id %}">Disciplina:
+        {{avaliacao.disciplina.nome}}</a></h3>
+    <h3><a href="{% url 'professores_detail' id=avaliacao.professor.id %}">professor:
+        {{avaliacao.professor.user.name}}
+        {{avaliacao.professor.user.lastName}}</a></h3>
+
+    <table class="table">
+        <thead>
+        <th>Questões</th>
+
+        {% if type == 'Professor' %}
+            <th>Resposta</th>
+            <th>Remover</th>
+            <th>Edit</th>
+        {% else %}
+            <th>Enunciado</th>
+        {% endif %}
+        </thead>
+        <tbody>
+        {% for questao in avaliacao.questoes.all %}
+        <tr>
+            <td>{{questao.id}} {{questao.nome}}</td>
+            {% if type == 'Professor' %}
+                <td>{{questao.correto}}</td>
+                <td><a href="{% url 'questao_delete' id=avaliacao.id  qid=questao.id%}"><button class="btn btn-default">Deletar</button></a></td>
+                <td><a class="btn btn-default" href="{% url 'questao_edit' id=questao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            {% endif %}
+            {% if type == 'Aluno' %}
+                <td>{{questao.enunciado}}</td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if type == 'Professor' %}
+        <a href="{% url 'questao_new' avaliacao_id=avaliacao.id %}">
+            <button class="btn btn-default">Adicionar questão</button>
+            <a class="btn btn-default" href="{% url 'avaliacao_edit' id=avaliacao.id disciplina_id=avaliacao.disciplina.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        </a>
+        <h1>Status das Tarefas</h1>
+        <table class="table">
+            <thead>
+            <th>Avaliação</th>
+            <th>Aluno</th>
+            <th>Nota</th>
+            </thead>
+            <tbody>
+            {% for nota in nota %}
+                <tr>
+                    <td>{{nota.avaliacao}}</td>
+                    <td>{{nota.aluno}}</td>
+                    <td>{{nota.nota}}</td>
+
+                </tr>
+            {%endfor %}
+            </tbody>
+        </table>
+
+        <h1>Status dos Alunos</h1>
+        <table class="table">
+            <thead>
+            <th>Aluno</th>
+            <th>Media</th>
+            <th>Status</th>
+            </thead>
+            <tbody>
+            {% for status in situacao_alunos %}
+                <tr>
+                    <td>{{status.aluno}}</td>
+                    <td>{{status.media}}</td>
+                    <td>{{status.situacao}}</td>
+
+                </tr>
+            {%endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+
+</div>
+{% endblock %}

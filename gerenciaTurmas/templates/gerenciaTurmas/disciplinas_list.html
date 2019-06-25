@@ -1,0 +1,11 @@
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+
+{% block content %}
+     {% for disciplina in disciplinas %}
+        <div class="post">
+            <h1><a href="{% url 'disciplina_detail' id=disciplina.id %}">Disciplina: {{disciplina.nome}}</a></h1>
+            <p>codigo: {{disciplina.codigo}} | Carga Horaria {{disciplina.cargaHoraria}}</p>
+        </div>
+{% endfor %}
+{% endblock %}

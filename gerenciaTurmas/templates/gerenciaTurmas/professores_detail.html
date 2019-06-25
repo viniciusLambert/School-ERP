@@ -1,0 +1,9 @@
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+{% block content %}
+    <h1>{{ professor.user.name }} {{ professor.user.lastName }}</h1>
+    <p>{{ professor.user.email}}</p>
+    {% for turma in turmas %}
+         <a href="{% url 'turma_detail' id=turma.id %}">{{turma.nome}} : {{turma.disciplina.nome}}</a><br>
+    {% endfor %}
+{% endblock %}

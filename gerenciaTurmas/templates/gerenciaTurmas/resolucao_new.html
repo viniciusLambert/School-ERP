@@ -1,0 +1,36 @@
+{% extends 'gerenciaTurmas/bases/base.html' %}
+
+{% block content %}
+<h1>{{ avaliacao.nome }}</h1>
+<h2>{{ aluno.user.name }} {{aluno.user.lastName}} - {{aluno.matricula}}</h2>
+
+<form method="POST" class="post-form">{% csrf_token %}
+    <div class="table-responsive">
+    <table class="table table-striped table-hover" >
+        <thead>
+        <th >Perguntas</th>
+        <th >Respostas</th>
+        </thead>
+        <tbody class="table-striped">
+        {% for field in form %}
+        <tr>
+            <td> {{ field.label }} </td>
+            {% for radio in field %}
+                <td class="inline" style="align-items: center; text-align: center; vertical-align: center">{{ radio.tag }}{{ radio.choice_label }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    {% for choice in form.date_format %}
+    {{ choice.choice_label }}
+    <div class="select">{{ choice.tag }}</div>
+    {# Or any other type you want. #}
+    {% endfor %}
+
+
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}
