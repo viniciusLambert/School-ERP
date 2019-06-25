@@ -29,6 +29,11 @@ def init(request):
         return redirect('login')
 
 
+def logout(request):
+    for key in list(request.session.keys()):
+        del request.session[key]
+    return redirect('login')
+
 def login(request):
     if request.method == "POST":
         user = get_object_or_404(User, email=request.POST['email'])

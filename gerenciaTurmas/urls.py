@@ -35,4 +35,6 @@ urlpatterns = [
     path('resolucao/<int:avaliacao_id>/',
          views.resolucao_new, name='resolucao_new'),
 
+    path('logout/', views.logout, name='logout'),
+
 ]
