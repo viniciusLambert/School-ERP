@@ -27,11 +27,11 @@ class LoginForm(forms.ModelForm):
 
 
 class AvaliacaoForm(forms.ModelForm):
-    questoes = forms.ModelMultipleChoiceField(queryset=Questoes.objects.all())
+    questoes = forms.ModelMultipleChoiceField(queryset=Questoes.objects.all(), required=False,)
 
     class Meta:
         model = Avaliacao
-        fields = ('nome', )
+        fields = ('nome',)
 
 
 class QuestaoForm(forms.ModelForm):

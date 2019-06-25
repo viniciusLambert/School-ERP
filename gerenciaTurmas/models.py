@@ -87,7 +87,7 @@ class Avaliacao(models.Model):
     nome = models.CharField(_('nome'), max_length=250)
     professor = models.ForeignKey(Professores, on_delete=models.CASCADE)
     disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE)
-    questoes = models.ManyToManyField(Questoes, blank=True, null=True)
+    questoes = models.ManyToManyField(Questoes, blank=True)
 
     class Meta:
         ordering = ['id']
@@ -102,7 +102,7 @@ class Avaliacao(models.Model):
 class Resolucao(models.Model):
     aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
     avaliacao = models.ForeignKey(Avaliacao, on_delete=models.CASCADE)
-    nota = models.FloatField(_('nota'), blank = True, null=True)
+    nota = models.FloatField(_('nota'), blank = True, null = True)
 
     class Meta:
         ordering = ['avaliacao']

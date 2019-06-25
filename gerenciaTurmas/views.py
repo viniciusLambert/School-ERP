@@ -218,7 +218,7 @@ def minhas_turmas(request):
 
         type = request.session.get('type')
         return render(request, 'gerenciaTurmas/minhas_turmas.html',
-                      {'avaliacao': avaliacao,
+                      {'avaliacao': avaliacoes,
                        'type': type,
                        'notas': notas,
                        'situacao_alunos': situacao_alunos,
