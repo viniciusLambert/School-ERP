@@ -487,11 +487,7 @@ def resolucao_new(request, avaliacao_id):
             for resposta in resolucao.respostas:
                 resposta.resolucao = resolucao
                 resposta.save()
-            return render(
-                request,
-                'gerenciaTurmas/resolucao_new.html',
-                {'form': form, 'avaliacao': avaliacao, 'aluno': aluno}
-            )
+            return redirect('minhas_turmas')
         # return redirect()
     return render(
         request,
