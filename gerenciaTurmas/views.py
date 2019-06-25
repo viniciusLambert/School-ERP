@@ -468,8 +468,8 @@ def resolucao_new(request, avaliacao_id):
         if form.is_valid():
             resolucao = form.save(commit=False)
             for resposta in resolucao.respostas:
-                resposta.alternativa_aluno = request.POST.get(
-                    'questao_%d', resposta.questao.pk)
+                resposta.alternativa_aluno = int(request.POST.get(
+                    'questao_%d' % resposta.questao.pk))
 
                 if resposta.alternativa_aluno == resposta.questao.correto:
                     nota += 10/len(resolucao.respostas)

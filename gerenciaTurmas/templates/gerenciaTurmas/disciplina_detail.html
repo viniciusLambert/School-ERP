@@ -32,7 +32,7 @@
     <!-- TODO : se ja fez mostrar notas, else disponibilizar resolução-->
         {% for avaliacao in avaliacoes %}
         <tr>
-            <td><a href="{% url 'avaliacao_detail' id=avaliacao.id %}">{{avaliacao.nome }}</a></td>
+            <td><p>{{avaliacao.nome }}</p></td>
             <td>{{ avaliacao.questoes.count}}</td>
 
             {% if avaliacao.nota == None %}
