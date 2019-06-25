@@ -40,8 +40,7 @@ def login(request):
                 user = User.objects.get(email=request.session.get('email'))
                 aluno = Alunos.objects.get(user_id=user.id)
                 turmas = Turmas.objects.filter(alunos__pk=aluno.id)
-                return render(request, 'gerenciaTurmas/turmas_list.html',
-                              {'turmas': turmas})
+                return redirect('minhas_turmas')
 
     form = LoginForm()
     return render(request, 'gerenciaTurmas/login/login.html', {'form': form})
@@ -174,15 +173,65 @@ def turmas_list(request):
 
 
 def minhas_turmas(request):
+
     if(request.session.get('type') == "Aluno"):
+
         user = User.objects.get(email =request.session.get('email'))
         aluno = Alunos.objects.get(user_id=user.id )
         turmas = Turmas.objects.filter(alunos__pk=aluno.id)
+        notas = []
+        situacao_alunos = []
+        for turma in turmas:
+            disciplina = get_object_or_404(Disciplinas, id=turma.disciplina.id)
+            avaliacoes = Avaliacao.objects.filter(disciplina__pk=disciplina.id)
+
+            n = 0
+            q = 0
+            for avaliacao in avaliacoes:
+                try:
+                    nota_aluno = Resolucao.objects.get(
+                        avaliacao__pk=avaliacao.id,
+                        aluno__pk=aluno.id).nota
+                    n += nota_aluno
+                    notas.append({
+                        'disciplina': turma.disciplina.nome,
+                        'avaliacao': avaliacao.id,
+                        'nota': nota_aluno
+                    })
+                except Resolucao.DoesNotExist:
+                    notas.append({
+                        'disciplina': turma.disciplina.nome,
+                        'avaliacao': avaliacao.id,
+                        'nota': 'Tarefa Não Realizada'
+                    })
+                q += 1
+            if (q == 0):
+                q = 1
+            media = n / q
+            print(notas)
+            situacao_alunos.append({
+                'disciplina': turma.disciplina.nome,
+                'media': media,
+                'situacao': "aprovado" if media >= 6 else "reprovado"
+                })
+
+        type = request.session.get('type')
+        return render(request, 'gerenciaTurmas/minhas_turmas.html',
+                      {'avaliacao': avaliacao,
+                       'type': type,
+                       'notas': notas,
+                       'situacao_alunos': situacao_alunos,
+                       'turmas': turmas,
+                       })
     else:
         user = User.objects.get(email=request.session.get('email'))
         professor = Professores.objects.get(user_id=user.id)
         turmas = Turmas.objects.filter(professor__pk=professor.id)
-    return render(request, 'gerenciaTurmas/turmas_list.html', {'turmas': turmas})
+
+
+    return render(request, 'gerenciaTurmas/minhas_turmas.html',
+                  {'turmas': turmas,
+                   })
 
 
 def turma_detail(request,id):
@@ -248,13 +297,24 @@ def avaliacao_delete(request, id, did):
     disciplina = get_object_or_404(Disciplinas, id=did)
     type = request.session.get('type')
     avaliacao = get_object_or_404(Avaliacao, id=id)
-    avaliacao.delete()
-    avaliacoes = Avaliacao.objects.filter(disciplina__pk=did)
-    return render(request, 'gerenciaTurmas/disciplina_detail.html', {
-        'disciplina': disciplina,
-        'avaliacoes': avaliacoes,
-        'type': type
-    })
+
+    try:
+        resolucao = Resolucao.objects.get(avaliacao__pk=avaliacao.id)
+        avaliacoes = Avaliacao.objects.filter(disciplina__pk=did)
+        return render(request, 'gerenciaTurmas/disciplina_detail.html', {
+            'disciplina': disciplina,
+            'avaliacoes': avaliacoes,
+            'type': type
+        })
+    except Resolucao.DoesNotExist:
+        avaliacao.delete()
+        avaliacoes = Avaliacao.objects.filter(disciplina__pk=did)
+
+        return render(request, 'gerenciaTurmas/disciplina_detail.html', {
+            'disciplina': disciplina,
+            'avaliacoes': avaliacoes,
+            'type': type
+        })
 
 def questao_delete(request, id, qid):
     avaliacao = get_object_or_404(Avaliacao, id=id)
