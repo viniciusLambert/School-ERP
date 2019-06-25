@@ -20,10 +20,14 @@ class DisciplinaForm(forms.ModelForm):
 
 
 class LoginForm(forms.ModelForm):
-
+    password = forms.CharField(widget=forms.PasswordInput)
+    model = User
+    widgets = {
+        'password': forms.PasswordInput(),
+    }
     class Meta:
         model = User
-        fields = ('email', 'password',)
+        fields = ('email',)
 
 
 class AvaliacaoForm(forms.ModelForm):
